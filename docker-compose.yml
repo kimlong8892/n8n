@@ -8,9 +8,9 @@ services:
       - "5678:5678"
     environment:
       - N8N_SECURE_COOKIE=false
-      - N8N_HOST=giatotnhat.io.vn
+      - N8N_HOST=n8n.giatotnhat.io.vn
       - N8N_PROTOCOL=http  # Đổi thành 'https' nếu dùng SSL
-      - WEBHOOK_URL=https://giatotnhat.io.vn/  # Cấu hình webhook (đổi thành https nếu có SSL)
+      - WEBHOOK_URL=https://n8n.giatotnhat.io.vn/  # Cấu hình webhook (đổi thành https nếu có SSL)
     volumes:
       - n8n_data:/home/node/.n8n
 
