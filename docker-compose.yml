@@ -1,18 +1,38 @@
 version: '3'
 services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_n8n
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: n8npassword
+      POSTGRES_DB: n8n
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
   n8n:
     image: docker.n8n.io/n8nio/n8n
     container_name: n8n
     restart: unless-stopped
+    depends_on:
+      - postgres
     ports:
       - "5678:5678"
     environment:
       - N8N_SECURE_COOKIE=false
       - N8N_HOST=n8n.giatotnhat.io.vn
-      - N8N_PROTOCOL=https  # Đổi thành 'https' nếu dùng SSL
-      - WEBHOOK_URL=https://n8n.giatotnhat.io.vn/  # Cấu hình webhook (đổi thành https nếu có SSL)
+      - N8N_PROTOCOL=https
+      - WEBHOOK_URL=https://n8n.giatotnhat.io.vn/
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_PASSWORD=n8npassword
     volumes:
       - n8n_data:/home/node/.n8n
 
 volumes:
   n8n_data:
+  postgres_data:
