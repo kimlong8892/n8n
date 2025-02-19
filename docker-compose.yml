@@ -32,6 +32,7 @@ services:
       - DB_POSTGRESDB_DATABASE=n8n
       - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=n8npassword
+      - N8N_PAYLOAD_SIZE_MAX=100MB
     volumes:
       - n8n_data:/home/node/.n8n
 
