@@ -1,17 +1,17 @@
 version: '3'
 services:
-  postgres:
-    image: postgres:15
-    container_name: postgres_n8n
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: n8n
-      POSTGRES_PASSWORD: n8npassword
-      POSTGRES_DB: n8n
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+  # postgres:
+  #   image: postgres:15
+  #   container_name: postgres_n8n
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_USER: n8n
+  #     POSTGRES_PASSWORD: n8npassword
+  #     POSTGRES_DB: n8n
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
 
   n8n:
     image: docker.n8n.io/n8nio/n8n
@@ -27,12 +27,12 @@ services:
       - N8N_PROTOCOL=https
       - WEBHOOK_URL=https://n8n.giatotnhat.io.vn/
       - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_HOST=103.82.195.159
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
-      - DB_POSTGRESDB_PASSWORD=n8npassword
-      - N8N_PAYLOAD_SIZE_MAX=100MB
+      - DB_POSTGRESDB_USER=admin
+      - DB_POSTGRESDB_PASSWORD=Admin123
+      - N8N_PAYLOAD_SIZE_MAX=500MB
     volumes:
       - n8n_data:/home/node/.n8n
 
