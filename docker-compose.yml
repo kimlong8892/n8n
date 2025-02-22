@@ -33,6 +33,12 @@ services:
       - DB_POSTGRESDB_USER=admin
       - DB_POSTGRESDB_PASSWORD=Admin123
       - N8N_PAYLOAD_SIZE_MAX=500MB
+      - N8N_SMTP_HOST=smtp.gmail.com
+      - N8N_SMTP_PORT=587
+      - N8N_SMTP_USER=kimlongsoctrang22@gmail.com
+      - N8N_SMTP_PASS=igaomjaavypozzwk
+      - N8N_SMTP_SENDER=kimlongsoctrang22@gmail.com
+      - N8N_SMTP_SSL=false
     volumes:
       - n8n_data:/home/node/.n8n
 
