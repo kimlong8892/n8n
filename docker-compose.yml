@@ -12,7 +12,7 @@ services:
       - N8N_PROTOCOL=https
       - WEBHOOK_URL=https://n8n.giatotnhat.io.vn/
       - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=0.0.0.0
+      - DB_POSTGRESDB_HOST=172.17.0.1
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_DATABASE=n8n
       - DB_POSTGRESDB_USER=admin
